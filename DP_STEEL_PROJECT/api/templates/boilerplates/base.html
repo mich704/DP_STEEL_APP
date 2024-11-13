@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+         
+            color: #cccccc; /* Slightly darker font color */
+            overflow-x: hidden; /* Disable horizontal scrolling */
+        }
+    
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    
+        nav {
+            display: inline-block;
+        }
+    
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+    
+        nav a:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            height: 50%;
+            border-right: 1px solid #555;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+    
+        .content {
+            background-color: #252525; /* Singular background color */
+            padding: 20px;
+            height: 100vh;
+        }
+
+        footer {
+            display: none; /* Hide the footer */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="/api/publications">Publications</a>
+        <a href="/api/images">Labelled Images</a>
+        <a href="/api/extract_images">Extract Images</a>
+        <a href="/api/microstructure_analysis">Microstructure Analysis</a>
+    </nav>
+</header>
+
+<div class="content">
+    {% block content %} 
+    {% endblock %} 
+</div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+# Use the TensorFlow image as a base for the final image
+FROM tensorflow/tensorflow:latest AS tensorflow-base
+
+# Use the TensorFlow Intel image as a base for the final image
+#FROM tensorflow/tensorflow:latest-intel AS tensorflow-intel-base
+
+# Use a publicly available Keras image as a base for the final image
+FROM tensorflow/tensorflow:latest-gpu AS keras-base
+
+# Use a base Python image
+FROM python:3.11.6 AS python-base
+
+# Install dependencies
+COPY DP_STEEL_PROJECT/requirement_no_versions.txt /DP_STEEL_PROJECT/
+RUN pip install --default-timeout=100 -r /DP_STEEL_PROJECT/requirement_no_versions.txt
+
+# Install system dependencies for OpenCV
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
+# Copy project files
+COPY DP_STEEL_PROJECT /DP_STEEL_PROJECT/
+
+# Set the working directory
+WORKDIR /DP_STEEL_PROJECT/DP_STEEL_PROJECT
+
+# Ensure uvicorn is installed
+RUN pip install uvicorn
+RUN pip list
+
+# Set the entry point to uvicorn
+ENTRYPOINT ["uvicorn"]
+
+# Command to run the application
+CMD ["DP_STEEL_PROJECT.asgi:application", "--host", "0.0.0.0", "--port", "8000"]

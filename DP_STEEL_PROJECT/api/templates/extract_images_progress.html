@@ -1,0 +1,20 @@
+{% extends "./boilerplates/base.html" %} 
+{% block content %} 
+<html>
+<head>
+    <title>Form Submission Successful</title>
+</head>
+<body>
+    
+    {% if package_response %}
+        <p>Your form data has been saved. Click the button below to download the file:</p>
+        <form method="get" action="{{ package_response }}">
+            <button type="submit">Download extracted images</button>
+        </form>
+    {% else %}
+        <h1>Progress...</h1>
+    {% endif %}
+</body>
+</html>
+
+{% endblock %}

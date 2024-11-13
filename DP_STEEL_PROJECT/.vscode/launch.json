@@ -1,0 +1,65 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "manage.py runserver",
+      "type": "debugpy",
+      "request": "launch",
+      "stopOnEntry": false,
+      "program": "manage.py",
+      "args": [
+          "runserver",
+          "--no-color",
+          "--noreload"
+      ]      
+    },
+    {
+      "name": "DatabaseManager.py seed db",
+      "type": "debugpy",
+      "request": "launch",
+      "stopOnEntry": false,
+      "program": "DatabaseManager.py",
+      "args": [
+          // "runserver",
+          // "--no-color",
+          // "--noreload"
+      ]      
+    },
+    {
+      "name": "Augmentation.py",
+      "type": "debugpy",
+      "request": "launch",
+      "stopOnEntry": false,
+      "program": "./api/utils/Augmentation.py",
+      "args": [
+          "-i",
+          "C:\\Users\\Michal\\Desktop\\DP-STEEL-AI_v2\\storage\\images\\LABELLED_DATA\\microstructure_classification\\orig_data"
+      ]      
+    },
+    {
+      "name": "Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "MicrostructureAnalyser.py MICROSTRUCTURE",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "..\\DP_STEEL_PROJECT\\api\\utils\\MicrostructureAnalyser.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+          "-i",
+          //"..\\project\\storage\\images\\splitting_test",
+          //"C:\\Users\\Michal\\Desktop\\DP-STEEL-AI_v2\\storage\\images\\microstructure_preprocessing_test\\microstructure"
+          //"C:\\Users\\Michal\\Desktop\\DP-STEEL-AI_v2\\storage\\images\\LABELLED_DATA\\microstructure_classification\\rest"
+          //"C:\\Users\\Michal\\Downloads\\20240619130152_classified_microstructure_images\\dp_steel"
+          "C:\\Users\\Michal\\Desktop\\DP-STEEL-AI_v2\\storage\\images\\LABELLED_DATA\\microstructure_classification\\orig_data",
+          "--csv_raport"
+      ]
+    },
+  ]
+}

@@ -1,0 +1,16 @@
+**/images/LABELLED_DATA
+**/project/images
+**/project/__pycache__
+**/project/logs
+**/keras_callbacks/**
+**/node_modules/**
+**/storage/**
+**/ares_scripts/**
+*.keras
+*.h5
+*.rar 
+**/dp_steel_venv/**
+**.sqlite3
+**/__pycache__/**
+**/project/__pycache__/**
+**.pyc

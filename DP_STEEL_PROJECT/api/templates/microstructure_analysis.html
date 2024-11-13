@@ -1,0 +1,13 @@
+{% extends "./boilerplates/base.html" %} 
+{% block content %} 
+
+<html>
+    <h1>Microstructure Analysis</h1>   
+    <form method='POST' action='' enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{form.as_p}}
+       <p><input type='submit' value='Preprocess'></p>
+    </form>
+</html>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "manage.py runserver",
+      "type": "debugpy",
+      "request": "launch",
+      "stopOnEntry": false,
+      "program": "./DP_STEEL_PROJECT/manage.py",
+      "args": [
+          "runserver",
+          "--no-color",
+          "--noreload"
+      ]      
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "npm start",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+          "start"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "cwd": "${workspaceFolder}/frontend"
+    },
+    {
+      "name": "Uvicorn: Run Django App",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "dp_steel_venv/Scripts/uvicorn.exe",
+      "args": [
+        "DP_STEEL_PROJECT.asgi:application",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8000",
+        "--reload",
+        "--log-level",
+        "info"
+      ],
+      "cwd": "${workspaceFolder}/DP_STEEL_PROJECT",
+      "console": "integratedTerminal",
+      "env": {
+        "DJANGO_SETTINGS_MODULE": "DP_STEEL_PROJECT.settings"
+      }
+    },
+    ///generic python run
+    {
+      "name": "Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}
